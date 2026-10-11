@@ -1,0 +1,15 @@
+# dsh-zimage-gen bundle patch：把插件插入当前 profile 的层栈。
+#
+# config 里每一项都可以省略，省略即使用插件默认值：
+#   baseUrl / model / defaultSize / credentialsFile / quotaFile
+#   autoExpandBelow / expandMinChars / expandMaxChars / expandProvider / expandModel
+#   expandTimeoutMs / expandMaxTokens / requestTimeoutMs
+#   downloadImages / maxImageBytes / imageTimeoutMs
+#   priceStandard / priceExtended / freeQuota
+- insert:
+    - id: zimage-gen
+      name: 'dsh-zimage-gen'
+      config:
+        defaultSize: '1024*1024'
+        autoExpandBelow: 30
+        downloadImages: true

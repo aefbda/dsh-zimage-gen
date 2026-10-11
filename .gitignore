@@ -1,0 +1,18 @@
+# 依赖与构建产物
+node_modules/
+*.tgz
+package-lock.json
+
+# 运行期产物（插件本身不写这些，防止你手动导出图片时误提交）
+output/
+*.local.json
+
+# 编辑器与系统
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# 日志
+*.log
+npm-debug.log*

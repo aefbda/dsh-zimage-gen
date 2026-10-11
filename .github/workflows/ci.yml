@@ -1,0 +1,23 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: ['20', '22', '24']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      # 零运行时依赖，所以不需要 npm install —— 直接跑。
+      - name: Syntax check
+        run: |
+          node --check index.js
+          for f in lib/*.js test/*.mjs; do node --check "$f"; done
+      - name: Offline self-check
+        run: npm test

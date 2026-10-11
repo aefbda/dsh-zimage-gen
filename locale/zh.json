@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Z-Image 文生图",
+    "description": "调用阿里云百炼 Z-Image-Turbo 生成图片，并统计本机调用次数与费用。"
+  }
+}

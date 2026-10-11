@@ -1,0 +1,56 @@
+{
+  "name": "dsh-zimage-gen",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "DeepSeek Harness 工具插件：用阿里云百炼 Z-Image-Turbo 出图（zimage_generate），并在本地统计调用次数与费用（zimage_quota）。",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "z-image",
+    "z-image-turbo",
+    "text-to-image",
+    "dashscope",
+    "bailian"
+  ],
+  "license": "MIT",
+  "author": "aefbda (https://github.com/aefbda)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aefbda/dsh-zimage-gen.git"
+  },
+  "homepage": "https://github.com/aefbda/dsh-zimage-gen#readme",
+  "bugs": "https://github.com/aefbda/dsh-zimage-gen/issues",
+  "icon": "./icon.svg",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "index.js",
+    "lib",
+    "locale",
+    "cordis.patch.yml",
+    "icon.svg",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "test": "node test/offline-selfcheck.mjs",
+    "check": "node --check index.js && node --check lib/tools.js && npm test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "meta": {
+    "title": "Z-Image 文生图",
+    "description": "调用阿里云百炼 Z-Image-Turbo 生成图片，并统计本机调用次数与费用。"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
